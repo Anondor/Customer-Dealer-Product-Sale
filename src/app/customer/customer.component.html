@@ -1,0 +1,34 @@
+<br>
+<div style="width: 70%; margin: auto;"> 
+
+<button type="button" class="btn btn-primary" (click)="openPage('customer')">
+    customer
+  </button>
+  <button type="button" class="btn btn-primary" (click)="openPage('dealer')" style="margin-left: 1%;">
+    Dealer
+  </button>
+
+  <h1>Customer Page</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ProductData; ">
+        <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.Stock}}</td>
+          <td><button class="btn btn-warning" (click)="addProductToCustomer(item)">Edit</button>&nbsp;
+        </tr>  
+    </tbody>
+  </table>
+
+</div>
+  
