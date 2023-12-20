@@ -61,7 +61,7 @@
  <div>Sale Type: {{saleType}}</div>
  <div>Discount: {{discount}}</div>
  <div>TotalQuantity: {{totalQuantity}}</div>
- <div>TotalAmount:{{totalCost-discount}}</div>
+<div>TotalAmount:{{(totalCost-discount)>0 ? (totalCost-discount):0}}</div>
 
 
   <h3>========== Customer sale Details ===========</h3>
