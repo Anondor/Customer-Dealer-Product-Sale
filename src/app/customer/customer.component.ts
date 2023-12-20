@@ -12,8 +12,11 @@ export class CustomerComponent extends BaseComponent implements OnInit {
   constructor(public override router:Router){
     super(router);
    
+   
   }
   override ngOnInit(): void {
+     this.saleType=2;
+     this.discount=50;
 
   }
 

@@ -9,11 +9,14 @@ import { BaseComponent } from '../base/base.component';
 })
 export class DealerComponent extends BaseComponent implements OnInit {
 
-  constructor(public override router:Router){
+  constructor(public override router: Router) {
     super(router);
+
   }
   override ngOnInit(): void {
-
+    this.saleType = 1;
+    this.discount = 30;
+    
   }
 
 }

@@ -7,8 +7,7 @@
   <button type="button" class="btn btn-primary" (click)="openPage('dealer')" style="margin-left: 1%;">
     Dealer
   </button>
-
-  <h1>Customer Page</h1>
+  <h1>Customer Table</h1>
   <table class="table">
     <thead>
       <tr>
@@ -25,10 +24,49 @@
           <td>{{item.name}}</td>
           <td>{{item.price}}</td>
           <td>{{item.Stock}}</td>
-          <td><button class="btn btn-warning" (click)="addProductToCustomer(item)">Edit</button>&nbsp;
+          <td><button class="btn btn-warning" (click)="addProductToCustomer(item)">Add</button>&nbsp;
+        </tr>  
+    </tbody>
+  </table>
+  <div  *ngIf="customerOrder.length">
+  <h1>Card Products</h1>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sl</th>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customerOrder; let index=index">
+         <td>{{index}}</td>
+         <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td><input type="text" value="{{item.quantity}}"  (change)="onChangeOptionCustomer(item,$event)"> </td>
+          <td>{{item.price*item.quantity}}</td>
+          <td><button class="btn btn-danger" (click)="removeProductToCustomer(item)">Remove</button>&nbsp;
         </tr>  
     </tbody>
   </table>
 
+  <h3>========== Customer sale product===========</h3>
+ <div>Order: {{TODAY_STR}}</div>
+ <div>Sale Type: {{saleType}}</div>
+ <div>Discount: {{discount}}</div>
+ <div>TotalQuantity: {{totalQuantity}}</div>
+ <div>TotalAmount:{{totalCost-discount}}</div>
+
+
+  <h3>========== Customer sale Details ===========</h3>
+<pre ><label>{{customerOrder|json}}</label></pre>
+
+  </div>
 </div>
-  
+
